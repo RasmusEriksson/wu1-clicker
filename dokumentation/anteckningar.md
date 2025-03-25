@@ -12,3 +12,6 @@ Lektion 2: 2025-03-12
 
 Lektion 3: 2025-03-20
     Började denna lektion med att börja skapa den egentliga sidan, Hade skapat lite bilder hemma på morgonen som jag använde för att skapa basen till det jag ville ha, en bakgrund och något man kan clicka. Lärde mig lite mer om JS syntax och annat. Inte så produktiv lektion men kändes som att jag fick något på gång i alla fall.
+
+Lektion 4: 2025-03-025
+    Försökte för det mesta börja formatera mer html och css denna lektion, fastnade lite på att försöka ordna layouten i upgraderingarna så komm inte så långt, fick i alla fall lite gjort
