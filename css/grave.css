@@ -20,6 +20,14 @@ h1 {
     color: var(--soul_green);
 }
 
+p {
+    font-family: "Macondo", sans-serif;
+}
+
+.none {
+    display: none;
+}
+
 .top_bar {
     height: fit-content;
     padding: 2rem;
@@ -68,8 +76,8 @@ h1 {
     outline-style: solid;
     outline-width: 0.5rem;
 }
-.upgrades_menu {
-    width: min(90% - 0rem, var(--container-max, 100ch));
+#upgrades_menu {
+    width: min(95% - 0rem, var(--container-max, 120ch));
     margin-inline: auto;
     display: flex;
     justify-content: space-around;
@@ -77,28 +85,42 @@ h1 {
     flex-grow: 1;
 }
 .upgrade {
+    background-color: purple;
     display: flex;
-    flex-grow: 1;
 
 
-    width: min(100% - 0rem, var(--container-max, 40ch));
+    width: min(90% - 0rem, var(--container-max, 55ch));
+    height: fit-content;
     margin: 0.5rem;
 }
 
-.upgrade img {
-    width: min(50% - 0rem, var(--container-max, 15ch));
-    padding: 0.5rem;
+.u_img {
+    background-image: url("../img/Grave.png");
+    background-size: cover;
+    background-position: center;
+    aspect-ratio: 1 / 1;
+    width: min(30% - 0rem, var(--container-max, 20ch));
+    max-height: 100%;
 }
 
 .u_text {
-    width: 60%;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .u_name {
+    color: var(--gold_yellow);
+    margin-inline: 0.5rem;
 }
 
 .u_description {
     padding: 0.5rem;
+    flex-grow: 1;
     background-color: black;
     color: white;
+}
+
+#u_template {
+    display: none;
 }
