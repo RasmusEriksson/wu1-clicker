@@ -1,5 +1,6 @@
 :root {
     --royal_purple: #61104a;
+    --red_pink: #b62980;
     --gold_yellow: #F9E5A1;
     --soul_green: #6AFFB7;
 }
@@ -38,7 +39,7 @@ p {
 
     background-color:var(--royal_purple);
     outline-color: var(--gold_yellow);
-    outline-style: solid;
+    outline-style: ridge;
     outline-width: 0.5rem;
 }
 
@@ -68,12 +69,13 @@ p {
 }
 
 
+
 .upgrades_background {
     background-color: var(--royal_purple);
     width: 100%;
-    height: 20rem;
+    height: fit-content;
     outline-color: var(--gold_yellow);
-    outline-style: solid;
+    outline-style: ridge;
     outline-width: 0.5rem;
 }
 #upgrades_menu {
@@ -92,21 +94,23 @@ p {
     width: min(90% - 0rem, var(--container-max, 55ch));
     height: fit-content;
     margin: 0.5rem;
-}
-
-.u_img {
-    background-image: url("../img/Grave.png");
-    background-size: cover;
-    background-position: center;
-    aspect-ratio: 1 / 1;
-    width: min(30% - 0rem, var(--container-max, 20ch));
-    max-height: 100%;
+    border-style: ridge;
+    border-width: 0.3rem;
+    border-color: var(--red_pink);
 }
 
 .u_text {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    width: min(90% - 0rem, var(--container-max, 30ch));
+}
+
+.u_img {
+    background-size: cover;
+    background-position: center;
+    aspect-ratio: 1 / 1;
+    width: min(30% - 0rem, var(--container-max, 20ch));
 }
 
 .u_name {
@@ -119,6 +123,12 @@ p {
     flex-grow: 1;
     background-color: black;
     color: white;
+}
+
+.button {
+    background-color: var(--soul_green);
+    border: solid;
+    border-width: 0.35rem;
 }
 
 #u_template {
