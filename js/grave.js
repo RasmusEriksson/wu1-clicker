@@ -5,31 +5,32 @@ const upgrade_menu = document.querySelector('#upgrades_menu')
 const upgrade_template = document.querySelector('#u_template')
 
 let souls = 0
+let soulPerClick = 1
 let soulsPerSecond = 0
-let test_image = document.getElementById("test_2")
 
 
 let upgrades = [
     {
-        name: "Assistant",
-        description: "A beginner within necromancy tries to help your efforts, * +2 souls per second *",
+        name: "Skeletony",
+        description: "One of your creations helps you summon more souls, * +2 souls per second *",
         img: "upgrade_1",
         cost: 20,
-        SPS: 2,
+        SPS: 2
     },
     {
-        name: "Assistant",
-        description: "A beginner within necromancy tries to help your efforts, * +2 souls per second *",
+        name: "Cultist",
+        description: "A beginner within necromancy tries to help your efforts, all praise the dark lord!, * +18 souls per second *",
         img: "upgrade_1",
-        cost: 670,
-        SPS: 35,
+        cost: 175,
+        SPS: 18
     },
     {
-        name: "Thanks!",
-        description: "You win! * +666666666666666 souls per second*",
-        img: "upgrade_2",
-        cost: 666,
-        SPS: 666666666666666,
+        name: "Cursed Totem",
+        description: "It feels cursed with dark power, it gives you strength, *+2 souls per click*",
+        img: "upgrade_1",
+        cost: 550,
+        SPC: 2,
+        scaling: 1.5
     }
 ];
 
@@ -41,34 +42,43 @@ function create_upgrade(upgrade) {
 
     let cost = upgrade.cost
     let amount = 0
+    let scaling = 1.25
 
     const name = children.item(1).childNodes.item(1)
     const description = children.item(1).childNodes.item(3)
     const upgrade_button = children.item(1).childNodes.item(5)
     const img = children.item(3)
+    
+    if (upgrade.scaling) {
+        scaling = upgrade.scaling
+    }
+
 
     img.id = upgrade.img
 
-    upgrade_button.textContent = `(${amount}) Cost:${cost}`
+    upgrade_button.textContent = `(${amount}) Cost: ${cost}`
 
     upgrade_button.addEventListener(
         'click', (event) => {
             if (souls >= cost) {
 
                 souls -= cost
-                soulsPerSecond += upgrade.SPS
-                amount += 1
-                cost = Math.round(upgrade.cost * Math.pow(1.25,amount))
+                if (upgrade.SPS) {
+                    soulsPerSecond += upgrade.SPS
+                }
+                if (upgrade.SPC) {
+                    soulPerClick += upgrade.SPC
+                }
 
-                upgrade_button.textContent = `(${amount}) Cost:${cost}`
+                amount += 1
+                cost = Math.round(upgrade.cost * Math.pow(scaling,amount))
+
+                upgrade_button.textContent = `(${amount}) Cost: ${cost}`
             }
         },
         false
     )
-
-
-    console.log(button)
-
+    
     name.textContent = upgrade.name
     description.textContent = upgrade.description
 
@@ -79,7 +89,7 @@ function create_upgrade(upgrade) {
 
 button.addEventListener(
     'click', (event) => {
-        souls += 1
+        souls += soulPerClick
     },
     false
 );

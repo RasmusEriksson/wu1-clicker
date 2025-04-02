@@ -5,8 +5,6 @@
     --soul_green: #6AFFB7;
 }
 
-
-
 @font-face {
     font-family: "Macondo";
     src: url("../Fonts/Macondo-Regular.ttf");
@@ -29,6 +27,17 @@ p {
     display: none;
 }
 
+@keyframes grave_click_saved {
+    0% {width: min(62% - 0rem, var(--container-max, 31ch));}
+    100% {width: min(60% - 0rem, var(--container-max, 30ch));}
+}
+@keyframes grave_click {
+    from {width: 93%; height: 93%;}
+    to {width: 90%; height: 90%;}
+}
+
+
+
 .top_bar {
     height: fit-content;
     padding: 2rem;
@@ -42,10 +51,6 @@ p {
     outline-style: ridge;
     outline-width: 0.5rem;
 }
-
-
-
-
 .background {
     height: 20rem;
     width: 100%;
@@ -63,8 +68,17 @@ p {
     border: none;
 }
 #grave_clicker img {
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    height: 90%;
+    margin-inline: auto;
+
+}
+#grave_clicker:hover {
+    cursor: pointer;
+}
+#grave_clicker:active img {
+    animation: grave_click;
+    animation-duration: 4s;
 
 }
 
