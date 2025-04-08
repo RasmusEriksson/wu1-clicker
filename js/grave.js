@@ -13,27 +13,28 @@ let upgrades = [
     {
         name: "Skeletony",
         description: "One of your creations helps you summon more souls, * +2 souls per second *",
-        img: "upgrade_1",
+        img: "Skeleton",
         cost: 20,
         SPS: 2
     },
     {
         name: "Cultist",
         description: "A beginner within necromancy tries to help your efforts, all praise the dark lord!, * +18 souls per second *",
-        img: "upgrade_1",
+        img: "Cultist",
         cost: 175,
         SPS: 18
     },
     {
         name: "Cursed Totem",
         description: "It feels cursed with dark power, it gives you strength, *+2 souls per click*",
-        img: "upgrade_1",
+        img: "Totem",
         cost: 550,
         SPC: 2,
         scaling: 1.5
     }
 ];
 
+let active_upgrades = {}
 
 function create_upgrade(upgrade) {
     const clone = upgrade_template.cloneNode(true)
@@ -58,6 +59,12 @@ function create_upgrade(upgrade) {
 
     upgrade_button.textContent = `(${amount}) Cost: ${cost}`
 
+    active_upgrades[upgrade.name] = {
+        up_cost: cost,
+        up_amount: amount,
+        button: upgrade_button
+    }
+
     upgrade_button.addEventListener(
         'click', (event) => {
             if (souls >= cost) {
@@ -72,13 +79,14 @@ function create_upgrade(upgrade) {
 
                 amount += 1
                 cost = Math.round(upgrade.cost * Math.pow(scaling,amount))
+                active_upgrades[upgrade.name].up_cost = cost
 
                 upgrade_button.textContent = `(${amount}) Cost: ${cost}`
             }
         },
         false
     )
-    
+
     name.textContent = upgrade.name
     description.textContent = upgrade.description
 
@@ -102,6 +110,21 @@ function step(timestamp) {
         souls += soulsPerSecond
         last = timestamp
     }
+
+    for (const [name, upgrade] of Object.entries(active_upgrades)) {
+        if (upgrade.up_cost > souls) {
+            if (upgrade.button.classList.contains("button_off") !== true) {
+                upgrade.button.classList.add("button_off")
+            }
+        };
+
+        if (upgrade.up_cost <= souls){
+            
+            if (upgrade.button.classList.contains("button_off")) {
+                upgrade.button.classList.remove("button_off")
+            }
+        };
+      }
 
 
     window.requestAnimationFrame(step);

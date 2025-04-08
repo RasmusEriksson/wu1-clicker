@@ -14,6 +14,17 @@
     src: url("../Fonts/CaesarDressing-Regular.ttf");
   }
 
+@keyframes grave_click {
+    from {width: 100%; height: 100%;}
+    to {width: 90%; height: 90%;}
+}
+@keyframes grave_idle {
+    0% {rotate: 0deg};
+    25% {rotate: 15deg;}
+    50% {rotate: 0deg};
+    100% {rotate: -15deg;}
+}
+
 h1 {
     font-family: "CeasarDressing", sans-serif;
     color: var(--soul_green);
@@ -27,14 +38,7 @@ p {
     display: none;
 }
 
-@keyframes grave_click_saved {
-    0% {width: min(62% - 0rem, var(--container-max, 31ch));}
-    100% {width: min(60% - 0rem, var(--container-max, 30ch));}
-}
-@keyframes grave_click {
-    from {width: 93%; height: 93%;}
-    to {width: 90%; height: 90%;}
-}
+
 
 
 
@@ -62,23 +66,40 @@ p {
     background-size: cover;
     background-position: center;
 }
+
+.button_frame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: 60%;
+}
 #grave_clicker {
-    width: min(60% - 0rem, var(--container-max, 30ch));
+    aspect-ratio: 1 / 1;
+    width: min(80% - 0rem, var(--container-max, 25ch));
     background-color: transparent;
     border: none;
+    
+    
 }
 #grave_clicker img {
     width: 90%;
     height: 90%;
     margin-inline: auto;
 
+
+    animation: 0.5s linear 1s infinite alternate grave_idle; 
+    /* animation-name: grave_idle;
+    animation-duration: 1s;
+    animation-iteration-count: infinite; */
+
 }
 #grave_clicker:hover {
     cursor: pointer;
 }
 #grave_clicker:active img {
-    animation: grave_click;
-    animation-duration: 4s;
+    animation-name: grave_click;
+    animation-duration: 1;
 
 }
 
@@ -141,7 +162,29 @@ p {
 
 .button {
     background-color: var(--soul_green);
-    border: solid;
+    border: outset;
+    border-color: #1f7548;
+    border-width: 0.35rem;
+}
+
+.button:hover {
+    border: inset;
+    border-color: #1f7548;
+    border-width: 0.35rem;
+    background-color: #86ff9e;
+}
+
+.button_off {
+    background-color: rgb(255, 90, 90);
+    border: outset;
+    border-color: #b02828;
+    border-width: 0.35rem;
+}
+
+.button_off:hover {
+    background-color: rgb(255, 135, 135);
+    border: inset;
+    border-color: #b02828;
     border-width: 0.35rem;
 }
 

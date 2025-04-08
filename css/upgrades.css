@@ -1,6 +1,9 @@
-#upgrade_1 {
-    background-image: url(../img/Grave_Background.png);
+#Skeleton {
+    background-image: url(../img/Skeleton.png);
 }
-#upgrade_2 {
-    background-image: url(../img/thanks.png);
+#Cultist {
+    background-image: url(../img/Cultist.png);
+}
+#Totem {
+    background-image: url(../img/Totem.png);
 }
