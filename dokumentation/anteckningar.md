@@ -32,4 +32,9 @@ Lektion 7: 2025-04-08
 
     Relativt nöjd med det jag gjorde den tiden som jag spenderade på det.
 
+Lektion 8 (dubbel-pass): 2025-04-08
+    Bestämde mig för att hitta på hur man skulle kunna göra en upgradering som baseras utav hur många av en annan upgradering som man har. Det tog ett tag att lista ut men fick det att fungera i slutändan! Gjorde det genom att göra så att listan av alla aktiva upgraderingar också innehöll deras SPS (souls per second) som gjorde att jag kunde manipulera den mycket lättare. Sedan använde jag mig helt enkelt av lite list logik för att updatera SPS värdet på den nya upgraderingen när både den blir köpt och när det som påverkar den blir köpt. Egentligen är det lite mer komplext än så men orkar inte förklara allt här.
+    Sedan så gjorde jag så att topp-baren med hur många "souls" du har ser lite finare ut till slut och visar även vad din nuvariga SPS är. 
+    Känner mig nu relativt klar (även om den sista upgraderingen inte har någon bild) och kommer att skicka in projektet som den är!
+
 
